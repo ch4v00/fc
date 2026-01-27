@@ -1,0 +1,97 @@
+{
+  "cookies": [
+    {
+      "name": "ARRAffinity",
+      "value": "1846056035823871fcd6f10713a3471f4444426b6d1883022247579e37a24c48",
+      "domain": ".tst.fyodigital.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ARRAffinitySameSite",
+      "value": "1846056035823871fcd6f10713a3471f4444426b6d1883022247579e37a24c48",
+      "domain": ".tst.fyodigital.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "ai_user",
+      "value": "UrS4hRXOBw2p7YzbCBL6o3|2026-01-27T05:20:39.873Z",
+      "domain": "tst.fyodigital.com",
+      "path": "/",
+      "expires": 1801027239.873525,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "x-ms-cpim-csrf",
+      "value": "ODJMSlBrR1lzNkJqZXRRRG1xNTFZQ1BlRWZOS2V4TkoyWHZrK096V1RlRXdxRFdQZ2pCWDR3TkRVdkIyT1lOb1hiU3BaL0VFVDRJd3Mzcno1V01pTnc9PTsyMDI2LTAxLTI3VDA1OjIwOjQzLjQyMzI0OTNaO2p1NkxKQ2Y3Ri8wb2dPWHVxZ09MZEE9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==",
+      "domain": ".fyob2c.b2clogin.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "ai_session",
+      "value": "Iiob4VoPuaHNEwPovkRRbN|1769491240043|1769491245222",
+      "domain": "tst.fyodigital.com",
+      "path": "/",
+      "expires": 1769493045.222631,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "ai_authUser",
+      "value": "CapitalExterno",
+      "domain": "tst.fyodigital.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "x-ms-cpim-sso:fyob2c.onmicrosoft.com_0",
+      "value": "m1.OtdyBL6fUd4MsU1D.Ob3eAnb5h5f1C0C6dFyadA==.0./rk+t/Y64OS46wIzA3MNDQkBWTiVuRb/ENfNUpA62ph8bgyYth0nNjGiksRcSz6FAtbPPpyurDwy3F7X7lfLPDr3pZGqMpFAQ6YRHfP1L1y5nrnYSUG4BZCnfD7kgmRNslmwe3MwvCKT6vk2G6AXKyc7iopLDb9hsfiFJb3LjybQSzMD+HuP1u9sagdJWIJ3sIaEKbp3wOiGOz/+stCol9MrnhHIfZ73J7IhL5Y5Bc9eSRYs4ZjnEkhYmRewFABtOMenHAH/MhBBbIHAeO8zoXLio7dWBS5kJZldk933uSkGiKacia/enrRiAl0DyXeZNEK90TmcvMl96q+JGWlcTtRl/JVdQNwxQ8WsLFpgKmg4UTpTe37clXYAWq5BYmQUY/149nbM/jk6mC/RJGCN4fNpkbDxz7qqcAyG3NZIUHN61SqNrLvbUNpdOx/7F7+mQrcP/DeGb2gGZSz4RrShiueq2IMIQeeafnSAvBW5GzJnhmq0u5MxFbgJwyZCVeRDH2JRi7wIqTIV6UTFroD+L8CV84W730msw8hjP8A+WxHSq0PQfHNR81LJD27jyHHKLOapILLSi9o4IGqgnB49UdugqMDlewbdF2Lkil79AD+pgBBszjLxROUuBfq4OvTc0vJkpb03oxbPvwXL36eGshTvUC75vlYbMgsiyi8/8cLWv+ErZ/16g3yNcDZQwvlulS/1BiH31OdCoYPB30nggzL/dPn08gFyEzLw15QONk5+kN/Zf3UW71GrjqNkAp46cxi9jOoEdFgsI6kl8ethclLPDqE6c1qkYy/++3cpu0Nz+q4nTEx/BDq5SbBta/aCHIKXw3awXs1vXn9T/V1xUg2GR+ER3TBiOYX68CAgVF/99Dg=",
+      "domain": ".fyob2c.b2clogin.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://tst.fyodigital.com",
+      "localStorage": [
+        {
+          "name": "refiner_ping_again_after",
+          "value": "1769492146"
+        },
+        {
+          "name": "refiner_first_seen",
+          "value": "1769491236"
+        },
+        {
+          "name": "refiner_ping_on_next_page_visit",
+          "value": "true"
+        },
+        {
+          "name": "refiner_cookie_uuid",
+          "value": "\"ede19682-4f50-76af-2287-092952ac7c31\""
+        }
+      ]
+    }
+  ]
+}
