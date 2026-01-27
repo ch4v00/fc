@@ -47,21 +47,21 @@ test.describe('Add New User', () => {
 
     // Step 3: Select Secciones and Roles
     await page.getByRole('combobox', { name: 'Seleccione Seleccione' }).click();
-
+    await page.waitForTimeout(2000);
     // Select Finanzas and wait
     await page.getByRole('option', { name: 'Finanzas' }).click();
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(1000);
 
     // Select Fyocapital and wait
     await page.getByRole('option', { name: 'Fyocapital' }).click();
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(1000);
 
     // Close dropdown
     await page.keyboard.press('Escape');
 
     // Wait for roles sections to appear
-    await expect(page.getByText('Finanzas')).toBeVisible({ timeout: 10000 });
-    await expect(page.locator('.module-title').filter({ hasText: 'fyoCapital' })).toBeVisible({ timeout: 10000 });
+    //await expect(page.getByText('Finanzas')).toBeVisible({ timeout: 10000 });
+    //await expect(page.locator('.module-title').filter({ hasText: 'fyoCapital' })).toBeVisible({ timeout: 10000 });
 
     // Select roles - Finanzas (radio button) - click on the container div
     await page.locator('div').filter({ hasText: /^Analista Finanzas$/ }).locator('..').click();

@@ -22,17 +22,27 @@
     },
     {
       "name": "ai_user",
-      "value": "UrS4hRXOBw2p7YzbCBL6o3|2026-01-27T05:20:39.873Z",
+      "value": "b4n+t4MW8I5tziS1WTHo8U|2026-01-27T06:06:05.762Z",
       "domain": "tst.fyodigital.com",
       "path": "/",
-      "expires": 1801027239.873525,
+      "expires": 1801029965.762614,
       "httpOnly": false,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "x-ms-cpim-csrf",
-      "value": "ODJMSlBrR1lzNkJqZXRRRG1xNTFZQ1BlRWZOS2V4TkoyWHZrK096V1RlRXdxRFdQZ2pCWDR3TkRVdkIyT1lOb1hiU3BaL0VFVDRJd3Mzcno1V01pTnc9PTsyMDI2LTAxLTI3VDA1OjIwOjQzLjQyMzI0OTNaO2p1NkxKQ2Y3Ri8wb2dPWHVxZ09MZEE9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==",
+      "value": "UzJhaHErMjRqbTE4USsyakZmajk5c0hEVmdrYXluOG1RWFNLdWVaVTBudjAxbks1Slo3OEMwalFuK3pTOWpCVXRSM1hMMVE4enJWaDhQaDF1YWFOSGc9PTsyMDI2LTAxLTI3VDA2OjA2OjEwLjYzODY1MTRaO2RYVkhrMm5lWnNBKzUwbWF2NkRkRGc9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==",
+      "domain": ".fyob2c.b2clogin.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "x-ms-cpim-sso:fyob2c.onmicrosoft.com_0",
+      "value": "m1.TXvZDE0Zwum+FkNS.WwtItQImiqd3z1psfXPDQw==.0.c2naHzoA52pb0CBb06kcrtcZjsCg8QD6cbzitj28p9HtMUvOBExhZ3VZQLSA91lCoXe0iLLvYW/3SSl+ZqmzTDUk2gQKD8aAVhPGbAfsPY8MgtFd869eKrzNNU+HN0sn33NbEZ1VF0vWFvjwcFeOBxBfYZNcMUcKVRwt0kWVkVpIL6v+Qmp9LQxLPCxnxM/azd3Km0gTL8fGCvl9qiYG1YJMc1mqfj7oK4eGX8N7Uq1gVkuyAfrshWIvbnb6h2atAAcRLnIoCuRkbkVx2R6h4xpxdjrAi/pCeWvB6LemhGFMGfvGEdzL1Z429TEF8XqPAqoELRorJbP3NhnK/w3s/P/4Sytp6STfFtHm1GQs2zTaUyDH8Fx66NvdMotJ44RObLP8pb9ZmTS+NRoykMA1xWwzR89W0TAcTcAm76aRpIrqGgA6CYseek62/jNtlHnBNjHPf2lOgwAzOVEhe0PXav+hhe1TFpadaot3AzPqa7xBHpgXmEZSYKQoj2PgIxE5PcEQ4pnqe5MnwdgU5gFGdolFWjv4wgaMj4DvJ42D5t55umt7/SxaL8hf9kPOInnw7H8umWxtfhOi+dtwCwQC6gqVarZaoQQScoC5ODpwF47C5OC4f1Uei3rQVng9Tyc1S6r46vWJkLhpjyyamQc68vdmdV1pntcYQUhNxA68i8wTRekcY72b6KdyC02VGPEnJ55v9KzYQ486Du+WIL1oqjnvC0WBZ5ybbUOCCFtuvzg74A8qA0NIHjc0zby/h2X17I05tGhZRVUTiCLUXo65i34R81Q4GEdJrSpJBRvXsu/CdcwoSiBq3fLcNX1H9dZgD/bcLt/YPZTf7XbV5X3/B21HOEXKCdsdHsLv",
       "domain": ".fyob2c.b2clogin.com",
       "path": "/",
       "expires": -1,
@@ -42,31 +52,11 @@
     },
     {
       "name": "ai_session",
-      "value": "Iiob4VoPuaHNEwPovkRRbN|1769491240043|1769491245222",
+      "value": "z7e0D2T6dPFVB4WnRZkH9/|1769493965937|1769493974223",
       "domain": "tst.fyodigital.com",
       "path": "/",
-      "expires": 1769493045.222631,
+      "expires": 1769495774.223619,
       "httpOnly": false,
-      "secure": true,
-      "sameSite": "None"
-    },
-    {
-      "name": "ai_authUser",
-      "value": "CapitalExterno",
-      "domain": "tst.fyodigital.com",
-      "path": "/",
-      "expires": -1,
-      "httpOnly": false,
-      "secure": true,
-      "sameSite": "None"
-    },
-    {
-      "name": "x-ms-cpim-sso:fyob2c.onmicrosoft.com_0",
-      "value": "m1.OtdyBL6fUd4MsU1D.Ob3eAnb5h5f1C0C6dFyadA==.0./rk+t/Y64OS46wIzA3MNDQkBWTiVuRb/ENfNUpA62ph8bgyYth0nNjGiksRcSz6FAtbPPpyurDwy3F7X7lfLPDr3pZGqMpFAQ6YRHfP1L1y5nrnYSUG4BZCnfD7kgmRNslmwe3MwvCKT6vk2G6AXKyc7iopLDb9hsfiFJb3LjybQSzMD+HuP1u9sagdJWIJ3sIaEKbp3wOiGOz/+stCol9MrnhHIfZ73J7IhL5Y5Bc9eSRYs4ZjnEkhYmRewFABtOMenHAH/MhBBbIHAeO8zoXLio7dWBS5kJZldk933uSkGiKacia/enrRiAl0DyXeZNEK90TmcvMl96q+JGWlcTtRl/JVdQNwxQ8WsLFpgKmg4UTpTe37clXYAWq5BYmQUY/149nbM/jk6mC/RJGCN4fNpkbDxz7qqcAyG3NZIUHN61SqNrLvbUNpdOx/7F7+mQrcP/DeGb2gGZSz4RrShiueq2IMIQeeafnSAvBW5GzJnhmq0u5MxFbgJwyZCVeRDH2JRi7wIqTIV6UTFroD+L8CV84W730msw8hjP8A+WxHSq0PQfHNR81LJD27jyHHKLOapILLSi9o4IGqgnB49UdugqMDlewbdF2Lkil79AD+pgBBszjLxROUuBfq4OvTc0vJkpb03oxbPvwXL36eGshTvUC75vlYbMgsiyi8/8cLWv+ErZ/16g3yNcDZQwvlulS/1BiH31OdCoYPB30nggzL/dPn08gFyEzLw15QONk5+kN/Zf3UW71GrjqNkAp46cxi9jOoEdFgsI6kl8ethclLPDqE6c1qkYy/++3cpu0Nz+q4nTEx/BDq5SbBta/aCHIKXw3awXs1vXn9T/V1xUg2GR+ER3TBiOYX68CAgVF/99Dg=",
-      "domain": ".fyob2c.b2clogin.com",
-      "path": "/",
-      "expires": -1,
-      "httpOnly": true,
       "secure": true,
       "sameSite": "None"
     }
@@ -77,11 +67,11 @@
       "localStorage": [
         {
           "name": "refiner_ping_again_after",
-          "value": "1769492146"
+          "value": "1769494874"
         },
         {
           "name": "refiner_first_seen",
-          "value": "1769491236"
+          "value": "1769493963"
         },
         {
           "name": "refiner_ping_on_next_page_visit",
@@ -89,7 +79,7 @@
         },
         {
           "name": "refiner_cookie_uuid",
-          "value": "\"ede19682-4f50-76af-2287-092952ac7c31\""
+          "value": "\"76a145ea-b774-d02e-12ba-fce06e9b12d0\""
         }
       ]
     }
