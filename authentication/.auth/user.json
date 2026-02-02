@@ -2,8 +2,8 @@
   "cookies": [
     {
       "name": "ARRAffinity",
-      "value": "1846056035823871fcd6f10713a3471f4444426b6d1883022247579e37a24c48",
-      "domain": ".tst.fyodigital.com",
+      "value": "b166a90e62456752594f81d91d3a0138a0972c9ace2eaf27fb2e4f52b791ce2d",
+      "domain": ".stg.fyodigital.com",
       "path": "/",
       "expires": -1,
       "httpOnly": true,
@@ -12,8 +12,8 @@
     },
     {
       "name": "ARRAffinitySameSite",
-      "value": "1846056035823871fcd6f10713a3471f4444426b6d1883022247579e37a24c48",
-      "domain": ".tst.fyodigital.com",
+      "value": "b166a90e62456752594f81d91d3a0138a0972c9ace2eaf27fb2e4f52b791ce2d",
+      "domain": ".stg.fyodigital.com",
       "path": "/",
       "expires": -1,
       "httpOnly": true,
@@ -22,17 +22,17 @@
     },
     {
       "name": "ai_user",
-      "value": "u+zqBhiKb99+5ekLod3fJy|2026-02-01T02:45:35.450Z",
-      "domain": "tst.fyodigital.com",
+      "value": "owRftsCgZYZTfnGbiw3tqM|2026-02-02T04:08:33.114Z",
+      "domain": "stg.fyodigital.com",
       "path": "/",
-      "expires": 1801449935.450734,
+      "expires": 1801541313.114543,
       "httpOnly": false,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "x-ms-cpim-csrf",
-      "value": "UGZvMmU4WFNKTmVEYjR0SFVCdW9XVDRVbEJBV01kcVZUTFpOczBBSVZZQmJDSUNXN1lSWTlBUTFYWGttVllXQnhZelVHUVFuSCtHUXY2RzBvQ2k4WFE9PTsyMDI2LTAyLTAxVDAyOjQ1OjMxLjc2MTEyMzFaO3hqZ09rbUJYWjM1dlpHS3FBY3NhU1E9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==",
+      "value": "Rlo4SVlCWjdKK00zNFA4dWZXcm9HK3dodW1ZamFkbHhId3JqaThaTDlmcG01Y0dtakppaTBYR3l4UHAwS3dEeXU5RFJOYitFc3M2RVRLSDd2N2lOMVE9PTsyMDI2LTAyLTAyVDA0OjA4OjI4LjU0NDc3NTJaO2xmaDljVzczaXJCRlpVZ3VJWXpwc0E9PTt7Ik9yY2hlc3RyYXRpb25TdGVwIjoxfQ==",
       "domain": ".fyob2c.b2clogin.com",
       "path": "/",
       "expires": -1,
@@ -42,7 +42,7 @@
     },
     {
       "name": "x-ms-cpim-sso:fyob2c.onmicrosoft.com_0",
-      "value": "m1.PBK/9kJmto8Uyrmf.PwODoc2lUz8AoCr+YzC8SA==.0.U9ORVmXkJOkrnQq/ZNpVfOS3oqWgIEZo7wiFtDWHBFaA5OAHayO5uu/NN9gOwIEA86xSML+Aa/61CbdSLpy49E8wcAaykgQWJUCTp4lVO/6zdPc1pamwV4fO3IqiUQgAWPiu0kMjJ6aLln9nMxZ14bzkLE8Oz5TecMTfT6voX4vbbPKTZQE/W69Tk74L5oDjxiscYsoDio0Xct54DJLGryRot32lM/14ML82+85ucARuGa0kTXZ9X+OtH01IbcSmh20CXwJ7hhmlTN4cXvHZ37O8i15W6m8lag5v1BMD/awxvYfbfm5wZoP6VqDE6kq3Ksy76jaUgC1moK0WCFG2I6t0hMMDWZ1+TSSHc1B4kbRut+O1sYaAmD6A8J8pFNrWD1ym8ajbe3GrhdTDS03sStDzZFZJzPGgt4/+/pPw4asid6yGoOwsiF6C7V8I9umL+zD99cc6Ug7duTPMw6429gUz9YnKU8XN8qLutMgQMuQNq+Z5CzunJJl2MWHTaW3Iga5b+mHe7ZalJ3++uvxUkpm+Z5gBWtjJVGXw9DVSABoCUdVcDTdm+qxgYpasIEGojQZwWDNJuA4ISuC0OsN9/faP6SYP91Y+cbnYqgZ8+THaFgSHHLbUUJBPDPXvPnZVsNn7IOWsDq8Fxl0GTBvNAmlr+Wk8S6USDoopPSzv/xmr2AEg5NyGrUK+twhCXnbjx6GIoE9CdFKWfypqqdlh6LWi0hcs3xFefDN/8dx/zXedG9a9WnuUBtSfOEy3VOqa0cZlSYF54m+neejq3+Nlj74FJ1A7+KhICfN9Fly1BZ3Y3Tlj0+svl+3aiiaDIDokIIwh4NPUhgN5fFXhiSQVTlda62/0XKAb",
+      "value": "m1.OZU+Y2DPRGpUN7jT.KU3QJVox+NUoDBkkQ1dACQ==.0.NPVBp5THfRycP0iJddK74TK0FEBw8zss2aTFN4EacljAxnTibRtN5LU+zU1QL0uJXa28hmc5+CAjjT+29fq9+zYtKO7FjrJX7J1ZqFm+m5R5TgsHZOu2vgfIsoZZuV8cFwXfhXMaJMDmhcKpT8dQC8i1y0OrO+Ihzu/paMFYFU+KtkPA71vNOQItPjVQdSDp2cV3uVKeBSXJRLKS07C0xSa0vpKClKTlEHw/PMzcyHVSnsTzae+BNwzVVU/rEkec7oeoBDXT4TNo95FoXQ0zk19rfP6Z9vAj9V2k5HezqDFlrA5YEQuud4jQeFl8cvnoc28PKpfTG+XwHjZvCUvvMvf+/AWxuFc/toEZCE/MtzJ5hYaen90AZNsdrn4D4Ey0pbub9DsmhrFSk7FAzGY20ctWaR4xnFNDRr+c/CE1o5Dft3+gieRn2e/8xPCES9DGeJNkeLt21uIfThcXKQHMyKgUnywH1y+Qy+pNo7dkYbjiJOBcU+aLCieskdOGLXZWwZtngnUCyglPIPAZVZcpQhNqNhFM0IgbOP5RQm+cu7EVnBfWfvETgFHIWwo+4baS2EptboYuHvAtFyjPYI26Z5zFADZfPj68k4UdMKRFkywR0WA6lO/pNQJ+YStH+I2i1D793b7M01DA91ePFI1NBVPtEZnujW3S/vlvx1X/DYJGk9cfIqaLBngy9lGmq0zKHgLkVlrzyjQEW4BTg+7qfk/5z5FNkK4v1khMEDZH+mOI1hXp9Dnnjk3yI01XxN2zvuKjcX4qnrTPFzItjM/HQrgrUEn8BEprknxBs3z/sAvPdmVLGwy1NGMIYUurY5ji/8irKAOnSNzDoypYstbkuaUQTGoB+vS3",
       "domain": ".fyob2c.b2clogin.com",
       "path": "/",
       "expires": -1,
@@ -52,10 +52,10 @@
     },
     {
       "name": "ai_session",
-      "value": "ykY6FD0S0lL3U725NUGE02|1769913935631|1769913941847",
-      "domain": "tst.fyodigital.com",
+      "value": "8ajxEDbu8KpujVh/JHnR3a|1770005313290|1770005319562",
+      "domain": "stg.fyodigital.com",
       "path": "/",
-      "expires": 1769915741.848692,
+      "expires": 1770007119.56316,
       "httpOnly": false,
       "secure": true,
       "sameSite": "None"
@@ -63,7 +63,7 @@
     {
       "name": "ai_authUser",
       "value": "CapitalExterno",
-      "domain": "tst.fyodigital.com",
+      "domain": "stg.fyodigital.com",
       "path": "/",
       "expires": -1,
       "httpOnly": false,
@@ -73,15 +73,15 @@
   ],
   "origins": [
     {
-      "origin": "https://tst.fyodigital.com",
+      "origin": "https://stg.fyodigital.com",
       "localStorage": [
         {
           "name": "refiner_ping_again_after",
-          "value": "1769914841"
+          "value": "1770006219"
         },
         {
           "name": "refiner_first_seen",
-          "value": "1769913932"
+          "value": "1770005310"
         },
         {
           "name": "refiner_ping_on_next_page_visit",
@@ -89,7 +89,7 @@
         },
         {
           "name": "refiner_cookie_uuid",
-          "value": "\"3622d340-7e55-439a-6bd8-e3e2f803ecc4\""
+          "value": "\"67e237db-d624-40f3-5398-256a06d4a0cf\""
         }
       ]
     }
