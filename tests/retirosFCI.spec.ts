@@ -171,7 +171,7 @@ test.describe('Rescates de FCI', () => {
 
     await page.getByRole('button', { name: 'Enviar solicitud' }).click();
 
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(4000);
 
     // Verificar éxito
     await expect(page.getByText('¡Felicitaciones!')).toBeVisible({ timeout: 20000 });
@@ -528,7 +528,7 @@ test.describe('Rescates de FCI', () => {
     await page.waitForTimeout(1000);
 
     await page.getByRole('button', { name: 'Enviar solicitud' }).click();
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(4000);
 
     await expect(page.getByText('¡Felicitaciones!')).toBeVisible({ timeout: 10000 });
 
