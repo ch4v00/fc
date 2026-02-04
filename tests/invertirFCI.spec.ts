@@ -153,7 +153,7 @@ test.describe('Invertir en FCI', () => {
     await expect(page.getByText('Seleccioná un fondo en dólares')).toBeVisible();
 
     // Seleccionar IAM 37 (IAM Ahorro Pesos)
-    await page.getByText('IAM Liquidez en Dólares - Clase B').click();
+    await page.getByText('IAM Renta Dolares - Clase B').click();
 
     // Esperar a que cargue el paso 3
     await page.waitForTimeout(1000);
@@ -163,8 +163,8 @@ test.describe('Invertir en FCI', () => {
     // PASO 3: Ver detalles del fondo y seleccionar acción
     // ============================================
     // Verificar que se muestran los detalles del fondo
-    await expect(page.getByText('IAM Liquidez en Dólares - Clase B')).toBeVisible();
-    await expect(page.getByText('IAM 44')).toBeVisible();
+    await expect(page.getByText('IAM Renta Dolares - Clase B')).toBeVisible();
+    await expect(page.getByText('IAM 25')).toBeVisible();
     await expect(page.getByText('Conservador')).toBeVisible();
 
     // Click en "Suscribir"
@@ -203,8 +203,8 @@ test.describe('Invertir en FCI', () => {
     await expect(page.getByText('Confirmá tu solicitud')).toBeVisible();
 
     // Verificar que se muestran los datos correctos
-    await expect(page.getByText('IAM Liquidez en Dólares - Clase B')).toBeVisible();
-    await expect(page.getByText('IAM 44')).toBeVisible();
+    await expect(page.getByText('IAM Renta Dolares - Clase B')).toBeVisible();
+    await expect(page.getByText('IAM 25')).toBeVisible();
     await expect(page.getByText('Agro In SRL')).toBeVisible();
 
     // Aceptar el reglamento (checkbox)

@@ -132,7 +132,6 @@ test.describe('Add New User', () => {
   });
 
   test('debería validar campos requeridos en el paso 1', async ({ page }) => {
-    await page.goto('/');
     await page.getByRole('button', { name: 'Mi Empresa' }).click();
     await page.waitForTimeout(1000);
     await page.getByText('Añadir usuario').click();

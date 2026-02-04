@@ -341,14 +341,14 @@ test.describe('Rescates de FCI', () => {
 
     // PASO 2: Seleccionar fondo específico
     await expect(page.getByText('Seleccioná un fondo en dólares')).toBeVisible();
-    await page.getByText('IAM Liquidez en Dólares - Clase B').click();
+    await page.getByText('IAM Renta Dolares - Clase B').click();
 
     await page.waitForTimeout(1000);
     await expect(page.getByText('Paso 3 de 5')).toBeVisible();
 
     // PASO 3: Verificar detalles y click en "Rescatar"
-    await expect(page.getByText('IAM Liquidez en Dólares - Clase B')).toBeVisible();
-    await expect(page.getByText('IAM 44')).toBeVisible();
+    await expect(page.getByText('IAM Renta Dolares - Clase B')).toBeVisible();
+    await expect(page.getByText('IAM 25')).toBeVisible();
 
     await page.getByRole('button', { name: 'Rescatar' }).click();
 
@@ -370,8 +370,8 @@ test.describe('Rescates de FCI', () => {
 
     // PASO 5: Confirmar solicitud
     await expect(page.getByText('Confirmá tu solicitud')).toBeVisible();
-    await expect(page.getByText('IAM Liquidez en Dólares - Clase B')).toBeVisible();
-    await expect(page.getByText('IAM 44')).toBeVisible();
+    await expect(page.getByText('IAM Renta Dolares - Clase B')).toBeVisible();
+    await expect(page.getByText('IAM 25')).toBeVisible();
 
     await page.getByRole('button', { name: 'Enviar solicitud' }).click();
 

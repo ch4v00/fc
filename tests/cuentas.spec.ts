@@ -160,6 +160,7 @@ test.describe('Añadir Cuenta Bancaria', () => {
     await page.getByRole('textbox', { name: 'Ingresá una observación' }).fill('Test Automatizado');
 
     // Seleccionar tipo de cuenta
+    await page.waitForTimeout(1000);
     await page.locator('.select-container.default > .select-box').click();
     await page.waitForTimeout(500);
     await page.getByText('Cuenta Corriente u$s').click();
