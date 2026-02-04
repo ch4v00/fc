@@ -537,4 +537,27 @@ test.describe('Validar Navegación - Menús y Solapas', () => {
     await expect(page.getByText(/Staging - v/)).toBeVisible();
     await expect(page.getByRole('link', { name: 'equipo@fyodigital.com' })).toBeVisible();
   });
+
+  test('debería mostrar el texto legal completo en el footer', async ({ page }) => {
+    const disclaimerContainer = page.locator('.disclaimer-container');
+
+    // Verificar primera línea del texto legal
+    await expect(disclaimerContainer).toContainText(
+      'Conforme las reglamentaciones de los Mercados, la documentación de respaldo de cada operación se encuentra a disposición del cliente.'
+    );
+
+    // Verificar segunda línea del texto legal
+    await expect(disclaimerContainer).toContainText(
+      'El sistema de colocación de cuotapartes por internet cumple con lo dispuesto por las Normas CNV 2013 TO vigente y sus modificatorias.'
+    );
+
+    // Verificar información de la empresa (usar fragmentos sin símbolos especiales)
+    await expect(disclaimerContainer).toContainText('Futuros y Opciones.com S.A.');
+    await expect(disclaimerContainer).toContainText('ALyC I AGRO Matrícula CNV N° 295');
+    await expect(disclaimerContainer).toContainText('ACyDI FCI Matrícula CNV N° 114');
+    await expect(disclaimerContainer).toContainText('CUIT: 30-70360510-5');
+    await expect(disclaimerContainer).toContainText('Madres de Plaza 25 de Mayo 3020');
+    await expect(disclaimerContainer).toContainText('Mail: fyocapital@fyo.com');
+    await expect(disclaimerContainer).toContainText('Tel: 0341-409120');
+  });
 });
