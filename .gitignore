@@ -10,3 +10,5 @@ node_modules/
 /allure-results/
 /allure-report/
 /.playwright-mcp/
+.clauderc
+qa-instructions.md

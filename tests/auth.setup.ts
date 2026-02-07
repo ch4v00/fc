@@ -1,4 +1,4 @@
-import { test as setup } from "./pages/TestBase"
+import { test as setup } from '../pages/TestBase'
 
 
 const authFile = 'authentication/.auth/user.json';
