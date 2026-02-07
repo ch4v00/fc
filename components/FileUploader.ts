@@ -1,6 +1,6 @@
 import { Page } from '@playwright/test';
 import { WaitHelper } from '../utils/helpers/WaitHelper';
-import { BUTTONS } from '../utils/constants';
+import { BUTTONS } from '../utils/constants/buttons';
 
 /**
  * Componente para manejo de subida de archivos

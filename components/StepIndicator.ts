@@ -1,5 +1,5 @@
 import { Page, expect } from '@playwright/test';
-import { MESSAGES } from '../utils/constants';
+import { MESSAGES } from '../utils/constants/messages';
 
 /**
  * Componente para indicador de pasos en wizards

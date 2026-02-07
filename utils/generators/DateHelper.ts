@@ -13,6 +13,13 @@ export class DateHelper {
   }
 
   /**
+   * Alias de getCurrentDate() para código más conciso
+   */
+  static today(): string {
+    return this.getCurrentDate();
+  }
+
+  /**
    * Formatea una fecha al formato dd/mm/yyyy
    * @param date - Fecha a formatear
    */

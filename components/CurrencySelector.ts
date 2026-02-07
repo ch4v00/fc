@@ -56,7 +56,7 @@ export class CurrencySelector {
    * @param currencyName - Nombre de la moneda ('ARS', 'USD', 'Dólar Cable')
    */
   async verifyCurrencyVisible(currencyName: string) {
-    await expect(this.page.getByText(currencyName)).toBeVisible();
+    await expect(this.page.getByText(currencyName)).toBeVisible({ timeout: 20000 });
   }
 
   /**

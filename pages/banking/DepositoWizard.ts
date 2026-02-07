@@ -5,14 +5,14 @@ import { FileUploader } from '../../components/FileUploader';
 import { DataGenerator } from '../../utils/generators/DataGenerator';
 import { BankingDataGenerator } from '../../utils/generators/BankingDataGenerator';
 import { DateHelper } from '../../utils/generators/DateHelper';
-import { BUTTONS } from '../../utils/constants';
+import { BUTTONS } from '../../utils/constants/buttons';
 import { WaitHelper } from '../../utils/helpers/WaitHelper';
 
 /**
  * Enum para tipos de depósito
  */
-export enum DepositType {
-  BANK_TRANSFER = 'Transferencia bancaria',
+export enum TipoDeposito {
+  TRANSFERENCIA_BANCARIA = 'Transferencia bancaria',
   ECHEQ = 'Echeq'
 }
 
@@ -20,7 +20,7 @@ export enum DepositType {
  * Page Object para el wizard de informar depósito
  * Maneja el flujo completo de 4 pasos para informar un depósito
  */
-export class DepositWizard extends BaseWizard {
+export class DepositoWizard extends BaseWizard {
   private currencySelector: CurrencySelector;
   private fileUploader: FileUploader;
   private readonly TOTAL_STEPS = 4;
@@ -39,7 +39,7 @@ export class DepositWizard extends BaseWizard {
    * Selecciona el tipo de depósito
    * @param depositType - Tipo de depósito (Transferencia bancaria o Echeq)
    */
-  async selectDepositType(depositType: DepositType) {
+  async seleccionarTipoDeposito(depositType: TipoDeposito) {
     await this.verifyStep(1, this.TOTAL_STEPS);
     await this.page.locator('div').filter({ hasText: new RegExp(`^${depositType}$`) }).click();
     await WaitHelper.shortWait(this.page, 1000);
@@ -56,7 +56,7 @@ export class DepositWizard extends BaseWizard {
    * @param bankName - Nombre del banco origen
    * @param amount - Monto (opcional, se genera random si no se proporciona)
    */
-  async fillBankTransferData(
+  async completarDatosTransferencia(
     currency: Currency = Currency.ARS,
     bankName: string = 'Banco de Galicia y Bs. As. SA',
     amount?: number
@@ -69,6 +69,7 @@ export class DepositWizard extends BaseWizard {
     }
 
     // Ingresar monto
+    await WaitHelper.shortWait(this.page, 4000);
     const depositAmount = amount || DataGenerator.randomAmount(1, 99999999);
     await this.fillInput('Ingresá el monto', depositAmount.toString());
 
@@ -76,9 +77,9 @@ export class DepositWizard extends BaseWizard {
     await this.page.locator('input[placeholder="dd/mm/aaaa"]').first().fill(DateHelper.getCurrentDate());
 
     // Seleccionar cuenta origen
-    await WaitHelper.shortWait(this.page, 1000);
+    await WaitHelper.shortWait(this.page, 2000);
     await this.page.locator('.select-box').click();
-    await WaitHelper.shortWait(this.page, 500);
+    await WaitHelper.shortWait(this.page, 2000);
     await this.page.getByText(bankName).click();
 
     // Seleccionar cuenta destino fyo
@@ -99,7 +100,7 @@ export class DepositWizard extends BaseWizard {
    * Completa el formulario de Echeq
    * @param amount - Monto (opcional, se genera random si no se proporciona)
    */
-  async fillEcheqData(amount?: number) {
+  async completarDatosEcheq(amount?: number) {
     await this.verifyStep(2, this.TOTAL_STEPS);
 
     // Fecha actual
@@ -140,7 +141,7 @@ export class DepositWizard extends BaseWizard {
   /**
    * Confirma y envía la solicitud
    */
-  async confirmAndSend() {
+  async confirmarYEnviar() {
     await this.verifyStep(3, this.TOTAL_STEPS);
     await this.confirmRequest();
   }
@@ -155,14 +156,14 @@ export class DepositWizard extends BaseWizard {
    * @param bankName - Banco origen
    * @param amount - Monto (opcional)
    */
-  async informBankTransfer(
+  async informarTransferenciaBancaria(
     currency: Currency = Currency.ARS,
     bankName: string = 'Banco de Galicia y Bs. As. SA',
     amount?: number
   ) {
-    await this.selectDepositType(DepositType.BANK_TRANSFER);
-    await this.fillBankTransferData(currency, bankName, amount);
-    await this.confirmAndSend();
+    await this.seleccionarTipoDeposito(TipoDeposito.TRANSFERENCIA_BANCARIA);
+    await this.completarDatosTransferencia(currency, bankName, amount);
+    await this.confirmarYEnviar();
     await this.completeSuccessFlow();
   }
 
@@ -170,17 +171,17 @@ export class DepositWizard extends BaseWizard {
    * Flujo completo de Echeq
    * @param amount - Monto (opcional)
    */
-  async informEcheq(amount?: number) {
-    await this.selectDepositType(DepositType.ECHEQ);
-    await this.fillEcheqData(amount);
-    await this.confirmAndSend();
+  async informarEcheq(amount?: number) {
+    await this.seleccionarTipoDeposito(TipoDeposito.ECHEQ);
+    await this.completarDatosEcheq(amount);
+    await this.confirmarYEnviar();
     await this.completeSuccessFlow();
   }
 
   /**
    * Click en "Informar otro depósito"
    */
-  async informAnotherDeposit() {
+  async informarOtroDeposito() {
     await this.page.getByRole('button', { name: BUTTONS.INFORM_ANOTHER_DEPOSIT }).click();
     await WaitHelper.shortWait(this.page, 1000);
     await this.verifyStep(1, this.TOTAL_STEPS);
@@ -193,15 +194,15 @@ export class DepositWizard extends BaseWizard {
   /**
    * Verifica opciones de tipo de depósito
    */
-  async verifyDepositTypeOptions() {
-    await this.verifyTextVisible(DepositType.BANK_TRANSFER);
-    await this.verifyTextVisible(DepositType.ECHEQ);
+  async verificarOpcionesTipoDeposito() {
+    await this.verifyTextVisible(TipoDeposito.TRANSFERENCIA_BANCARIA);
+    await this.verifyTextVisible(TipoDeposito.ECHEQ);
   }
 
   /**
    * Verifica opciones de moneda
    */
-  async verifyCurrencyOptions() {
+  async verificarOpcionesMoneda() {
     await this.currencySelector.verifyAllCurrenciesVisible();
   }
 }

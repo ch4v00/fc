@@ -1,14 +1,14 @@
 import { Page, expect } from '@playwright/test';
 import { BaseWizard } from '../base/BaseWizard';
 import { DataGenerator } from '../../utils/generators/DataGenerator';
-import { BUTTONS } from '../../utils/constants';
+import { BUTTONS } from '../../utils/constants/buttons';
 import { WaitHelper } from '../../utils/helpers/WaitHelper';
 
 /**
  * Page Object para el wizard de mover fondos
  * Maneja el flujo completo de 3 pasos para transferir fondos entre cuentas
  */
-export class MoveFundsWizard extends BaseWizard {
+export class MoverFondosWizard extends BaseWizard {
   private readonly TOTAL_STEPS = 3;
 
   constructor(page: Page) {
@@ -23,7 +23,7 @@ export class MoveFundsWizard extends BaseWizard {
    * Intercambia origen y destino (swap)
    * Útil para cambiar de "Granos -> Inversiones" a "Inversiones -> Granos"
    */
-  async swapOriginDestination() {
+  async intercambiarOrigenDestino() {
     await this.page.locator('button').filter({ hasText: '' }).first().click();
     await WaitHelper.shortWait(this.page, 500);
   }
@@ -32,7 +32,7 @@ export class MoveFundsWizard extends BaseWizard {
    * Ingresa el monto a mover
    * @param amount - Monto (opcional, se genera random si no se proporciona)
    */
-  async enterAmount(amount?: number) {
+  async ingresarMonto(amount?: number) {
     const moveAmount = amount || DataGenerator.randomAmount(1, 19999);
     await this.fillInput('Ingresa el monto', moveAmount.toString());
   }
@@ -40,7 +40,7 @@ export class MoveFundsWizard extends BaseWizard {
   /**
    * Click en botón MAX para usar el saldo disponible completo
    */
-  async clickMaxAmount() {
+  async clickearMontoMaximo() {
     await this.page.getByText(BUTTONS.MAX).click();
     await WaitHelper.shortWait(this.page, 500);
   }
@@ -49,14 +49,14 @@ export class MoveFundsWizard extends BaseWizard {
    * Ingresa observaciones
    * @param observation - Texto de observación (default: 'Test Automatizado')
    */
-  async enterObservation(observation: string = 'Test Automatizado') {
+  async ingresarObservacion(observation: string = 'Test Automatizado') {
     await this.fillInput('Ingresá una observación', observation);
   }
 
   /**
    * Acepta términos y condiciones
    */
-  async acceptTerms() {
+  async aceptarTerminos() {
     await this.clickCheckbox();
     await WaitHelper.shortWait(this.page, 500);
   }
@@ -66,20 +66,20 @@ export class MoveFundsWizard extends BaseWizard {
    * @param amount - Monto (opcional)
    * @param swapDirection - Si debe intercambiar origen/destino (default: false)
    */
-  async fillMovementData(amount?: number, swapDirection: boolean = false) {
+  async completarDatosMovimiento(amount?: number, swapDirection: boolean = false) {
     await this.verifyStep(1, this.TOTAL_STEPS);
     await this.verifyTextVisible('Mover fondos');
 
     // Intercambiar si es necesario
     if (swapDirection) {
-      await this.swapOriginDestination();
+      await this.intercambiarOrigenDestino();
       await WaitHelper.shortWait(this.page, 500);
     }
 
     // Ingresar datos
-    await this.enterAmount(amount);
-    await this.enterObservation();
-    await this.acceptTerms();
+    await this.ingresarMonto(amount);
+    await this.ingresarObservacion();
+    await this.aceptarTerminos();
 
     // Continuar
     await this.continue();
@@ -92,7 +92,7 @@ export class MoveFundsWizard extends BaseWizard {
   /**
    * Confirma la solicitud de movimiento
    */
-  async confirmAndSend() {
+  async confirmarYEnviar() {
     await this.verifyStep(2, this.TOTAL_STEPS);
     await this.confirmRequest();
   }
@@ -106,9 +106,9 @@ export class MoveFundsWizard extends BaseWizard {
    * @param amount - Monto a mover (opcional)
    * @param fromInvestments - true para mover desde Inversiones a Granos (default: true)
    */
-  async moveFunds(amount?: number, fromInvestments: boolean = true) {
-    await this.fillMovementData(amount, fromInvestments);
-    await this.confirmAndSend();
+  async moverFondos(amount?: number, fromInvestments: boolean = true) {
+    await this.completarDatosMovimiento(amount, fromInvestments);
+    await this.confirmarYEnviar();
     await this.completeSuccessFlow();
   }
 
@@ -116,22 +116,22 @@ export class MoveFundsWizard extends BaseWizard {
    * Mueve fondos desde Inversiones a Granos
    * @param amount - Monto (opcional)
    */
-  async moveFromInvestmentsToGrains(amount?: number) {
-    await this.moveFunds(amount, true);
+  async moverDeInversionesAGranos(amount?: number) {
+    await this.moverFondos(amount, true);
   }
 
   /**
    * Mueve fondos desde Granos a Inversiones
    * @param amount - Monto (opcional)
    */
-  async moveFromGrainsToInvestments(amount?: number) {
-    await this.moveFunds(amount, false);
+  async moverDeGranosAInversiones(amount?: number) {
+    await this.moverFondos(amount, false);
   }
 
   /**
    * Click en "Realizar otro movimiento"
    */
-  async makeAnotherMovement() {
+  async realizarOtroMovimiento() {
     await this.page.getByRole('button', { name: BUTTONS.MAKE_ANOTHER_MOVEMENT }).click();
     await WaitHelper.shortWait(this.page, 1000);
     await this.verifyStep(1, this.TOTAL_STEPS);
@@ -145,21 +145,21 @@ export class MoveFundsWizard extends BaseWizard {
    * Verifica el texto de dirección del movimiento
    * @param direction - Texto esperado (ej: 'De mis inversiones a mis negocios')
    */
-  async verifyDirection(direction: string) {
+  async verificarDireccion(direction: string) {
     await this.verifyTextVisible(direction);
   }
 
   /**
    * Verifica que se muestre el Total Disponible
    */
-  async verifyAvailableBalanceVisible() {
+  async verificarSaldoDisponibleVisible() {
     await this.verifyTextVisible('Total Disponible');
   }
 
   /**
    * Verifica que el botón continuar esté deshabilitado sin términos aceptados
    */
-  async verifyContinueDisabledWithoutTerms() {
+  async verificarContinuarDeshabilitadoSinTerminos() {
     await this.verifyContinueDisabled();
   }
 }

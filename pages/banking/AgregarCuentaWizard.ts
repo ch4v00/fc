@@ -3,14 +3,14 @@ import { BaseWizard } from '../base/BaseWizard';
 import { CurrencySelector, Currency } from '../../components/CurrencySelector';
 import { FileUploader } from '../../components/FileUploader';
 import { BankingDataGenerator } from '../../utils/generators/BankingDataGenerator';
-import { BUTTONS } from '../../utils/constants';
+import { BUTTONS } from '../../utils/constants/buttons';
 import { WaitHelper } from '../../utils/helpers/WaitHelper';
 
 /**
  * Page Object para el wizard de añadir cuenta bancaria
  * Maneja el flujo completo de 2 pasos para crear una cuenta bancaria
  */
-export class AddAccountWizard extends BaseWizard {
+export class AgregarCuentaWizard extends BaseWizard {
   private currencySelector: CurrencySelector;
   private fileUploader: FileUploader;
   private readonly TOTAL_STEPS = 2;
@@ -31,7 +31,7 @@ export class AddAccountWizard extends BaseWizard {
    * @param bankName - Nombre del banco
    * @param accountType - Tipo de cuenta (para ARS/USD, vacío para Cable)
    */
-  async fillAccountDetails(
+  async completarDetallesCuenta(
     currency: Currency,
     bankName: string,
     accountType: string = ''
@@ -40,7 +40,7 @@ export class AddAccountWizard extends BaseWizard {
     await this.verifyTextVisible('Completa los datos');
 
     // Seleccionar comitente
-    await this.selectComitente();
+    await this.seleccionarComitente();
 
     // Seleccionar moneda si no es ARS (ARS es default)
     if (currency !== Currency.ARS) {
@@ -50,13 +50,13 @@ export class AddAccountWizard extends BaseWizard {
     }
 
     // Seleccionar banco
-    await this.selectBank(bankName);
+    await this.seleccionarBanco(bankName);
 
     // Completar campos según moneda
     if (currency === Currency.CABLE) {
-      await this.fillCableFields();
+      await this.completarCamposCable();
     } else {
-      await this.fillStandardFields(accountType);
+      await this.completarCamposEstandar(accountType);
     }
 
     // Adjuntar comprobante
@@ -69,7 +69,7 @@ export class AddAccountWizard extends BaseWizard {
   /**
    * Selecciona el comitente (primera opción disponible)
    */
-  private async selectComitente() {
+  private async seleccionarComitente() {
     await this.page.locator('.select-box').first().click();
     await WaitHelper.shortWait(this.page, 500);
     await this.page.getByText('AGRO IN SRL -').click();
@@ -79,7 +79,7 @@ export class AddAccountWizard extends BaseWizard {
    * Selecciona un banco del listado
    * @param bankName - Nombre del banco
    */
-  private async selectBank(bankName: string) {
+  private async seleccionarBanco(bankName: string) {
     await this.page.locator('.select-container.default > .select-box').first().click();
     await WaitHelper.shortWait(this.page, 500);
     await this.page.getByText(bankName).click();
@@ -89,7 +89,7 @@ export class AddAccountWizard extends BaseWizard {
    * Completa los campos para cuentas ARS/USD
    * @param accountType - Tipo de cuenta
    */
-  private async fillStandardFields(accountType: string) {
+  private async completarCamposEstandar(accountType: string) {
     await this.fillInput('Ingresá el CBU', BankingDataGenerator.randomCBU());
     await this.fillInput('Ingresá el número', BankingDataGenerator.randomAccountNumber());
     await this.fillInput('Ingresá una observación', 'Test Automatizado');
@@ -103,7 +103,7 @@ export class AddAccountWizard extends BaseWizard {
   /**
    * Completa los campos para cuentas en Dólar Cable
    */
-  private async fillCableFields() {
+  private async completarCamposCable() {
     await this.fillInput('Ingresá el SWIFT', BankingDataGenerator.randomSWIFT());
     await this.fillInput('Ingresá el ABA', BankingDataGenerator.randomABA());
     await this.fillInput('Ingresá el número', BankingDataGenerator.randomAccountNumber());
@@ -117,7 +117,7 @@ export class AddAccountWizard extends BaseWizard {
   /**
    * Confirma los datos y envía la solicitud
    */
-  async confirmAndSend() {
+  async confirmarYEnviar() {
     await this.verifyStep(2, this.TOTAL_STEPS);
     await this.confirmRequest();
   }
@@ -132,20 +132,20 @@ export class AddAccountWizard extends BaseWizard {
    * @param bankName - Nombre del banco
    * @param accountType - Tipo de cuenta
    */
-  async addAccount(
+  async agregarCuenta(
     currency: Currency,
     bankName: string,
     accountType: string = ''
   ) {
-    await this.fillAccountDetails(currency, bankName, accountType);
-    await this.confirmAndSend();
+    await this.completarDetallesCuenta(currency, bankName, accountType);
+    await this.confirmarYEnviar();
     await this.completeSuccessFlow();
   }
 
   /**
    * Click en "Añadir otra cuenta" después del éxito
    */
-  async addAnotherAccount() {
+  async agregarOtraCuenta() {
     await this.page.getByRole('button', { name: BUTTONS.ADD_ANOTHER_ACCOUNT }).click();
     await WaitHelper.shortWait(this.page, 1000);
     await this.verifyStep(1, this.TOTAL_STEPS);
@@ -158,14 +158,14 @@ export class AddAccountWizard extends BaseWizard {
   /**
    * Verifica que las opciones de moneda estén visibles
    */
-  async verifyCurrencyOptions() {
+  async verificarOpcionesMoneda() {
     await this.currencySelector.verifyAllCurrenciesVisible();
   }
 
   /**
    * Verifica campos específicos de Dólar Cable
    */
-  async verifyCableFields() {
+  async verificarCamposCable() {
     await this.verifyTextVisible('*SWIFT');
     await this.verifyTextVisible('*ABA');
   }
@@ -173,7 +173,7 @@ export class AddAccountWizard extends BaseWizard {
   /**
    * Verifica mensaje de demora de habilitación
    */
-  async verifyDelayMessage() {
+  async verificarMensajeDemora() {
     await this.verifyTextVisible('Las nuevas cuentas tendrán una demora de 24 hs para su habilitación.');
   }
 }

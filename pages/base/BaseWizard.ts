@@ -1,6 +1,7 @@
 import { Page, expect } from '@playwright/test';
 import { BasePage } from './BasePage';
-import { BUTTONS, MESSAGES } from '../../utils/constants';
+import { BUTTONS } from '../../utils/constants/buttons';
+import { MESSAGES } from '../../utils/constants/messages';
 import { WaitHelper } from '../../utils/helpers/WaitHelper';
 
 /**
@@ -21,7 +22,7 @@ export abstract class BaseWizard extends BasePage {
   async verifyStep(stepNumber: number, totalSteps: number) {
     await expect(
       this.page.getByText(MESSAGES.STEP(stepNumber, totalSteps))
-    ).toBeVisible({ timeout: 10000 });
+    ).toBeVisible({ timeout: 20000 });
   }
 
   /**

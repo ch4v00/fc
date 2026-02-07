@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test --project='Google Chrome'",
+    "test:refactored": "npx playwright test tests/banking/ tests/investments/ tests/users/ --project='Google Chrome'",
+    "test:ui": "npx playwright test tests/banking/add-account.refactored.spec.ts --ui",
     "allure:generate": "npx allure generate allure-results --clean -o allure-report",
     "allure:open": "npx allure open allure-report",
     "report": "npm run allure:generate && npm run allure:open",

@@ -1,12 +1,12 @@
 import { Page, expect } from '@playwright/test';
 import { BaseWizard } from '../base/BaseWizard';
-import { BUTTONS } from '../../utils/constants';
+import { BUTTONS } from '../../utils/constants/buttons';
 import { WaitHelper } from '../../utils/helpers/WaitHelper';
 
 /**
  * Enum para tipos de fondos
  */
-export enum FundType {
+export enum TipoFondo {
   PESOS = 'Fondos en pesos',
   DOLARES = 'Fondos en dólares'
 }
@@ -14,16 +14,16 @@ export enum FundType {
 /**
  * Enum para acciones en FCI
  */
-export enum FCIAction {
-  SUBSCRIBE = 'Suscribir',
-  WITHDRAW = 'Rescatar'
+export enum AccionFCI {
+  SUSCRIBIR = 'Suscribir',
+  RESCATAR = 'Rescatar'
 }
 
 /**
  * Page Object para el wizard de invertir en FCI
  * Maneja el flujo completo de 5 pasos para suscripción/rescate de FCI
  */
-export class InvestFCIWizard extends BaseWizard {
+export class InvertirFCIWizard extends BaseWizard {
   private readonly TOTAL_STEPS = 5;
 
   constructor(page: Page) {
@@ -38,7 +38,7 @@ export class InvestFCIWizard extends BaseWizard {
    * Selecciona el tipo de fondo (pesos o dólares)
    * @param fundType - Tipo de fondo
    */
-  async selectFundType(fundType: FundType) {
+  async seleccionarTipoFondo(fundType: TipoFondo) {
     await this.verifyStep(1, this.TOTAL_STEPS);
     await this.verifyTextVisible('Seleccioná una de las opciones:');
 
@@ -55,7 +55,7 @@ export class InvestFCIWizard extends BaseWizard {
    * Selecciona un fondo específico del listado
    * @param fundName - Nombre del fondo (ej: 'IAM Ahorro Pesos - Clase B')
    */
-  async selectFund(fundName: string) {
+  async seleccionarFondo(fundName: string) {
     await this.verifyStep(2, this.TOTAL_STEPS);
     await this.page.getByText(fundName).click();
     await WaitHelper.shortWait(this.page, 1000);
@@ -70,7 +70,7 @@ export class InvestFCIWizard extends BaseWizard {
    * Verifica detalles del fondo y selecciona acción (Suscribir/Rescatar)
    * @param action - Acción a realizar
    */
-  async selectAction(action: FCIAction) {
+  async seleccionarAccion(action: AccionFCI) {
     await this.verifyStep(3, this.TOTAL_STEPS);
     await this.clickButton(action);
     await WaitHelper.shortWait(this.page, 1000);
@@ -82,7 +82,7 @@ export class InvestFCIWizard extends BaseWizard {
    * @param fundName - Nombre del fondo esperado
    * @param fundCode - Código del fondo (ej: 'IAM 37')
    */
-  async verifyFundDetails(fundName: string, fundCode: string) {
+  async verificarDetallesFondo(fundName: string, fundCode: string) {
     await this.verifyTextVisible(fundName);
     await this.verifyTextVisible(fundCode);
     await this.verifyTextVisible('Conservador');
@@ -96,7 +96,7 @@ export class InvestFCIWizard extends BaseWizard {
    * Ingresa el monto de inversión
    * @param amount - Monto a invertir
    */
-  async enterAmount(amount: string) {
+  async ingresarMonto(amount: string) {
     await this.verifyStep(4, this.TOTAL_STEPS);
     await this.verifyTextVisible('Suscribir fondo');
 
@@ -110,7 +110,7 @@ export class InvestFCIWizard extends BaseWizard {
   /**
    * Click en botón MAX para usar saldo disponible
    */
-  async clickMaxAmount() {
+  async clickearMontoMaximo() {
     await this.page.getByText(BUTTONS.MAX).click();
     await WaitHelper.shortWait(this.page, 500);
   }
@@ -122,7 +122,7 @@ export class InvestFCIWizard extends BaseWizard {
   /**
    * Acepta el reglamento y confirma la solicitud
    */
-  async confirmSubscription() {
+  async confirmarSuscripcion() {
     await this.verifyStep(5, this.TOTAL_STEPS);
 
     // Aceptar el reglamento (checkbox)
@@ -143,12 +143,12 @@ export class InvestFCIWizard extends BaseWizard {
    * @param fundName - Nombre del fondo
    * @param amount - Monto a invertir
    */
-  async subscribeFund(fundType: FundType, fundName: string, amount: string) {
-    await this.selectFundType(fundType);
-    await this.selectFund(fundName);
-    await this.selectAction(FCIAction.SUBSCRIBE);
-    await this.enterAmount(amount);
-    await this.confirmSubscription();
+  async suscribirFondo(fundType: TipoFondo, fundName: string, amount: string) {
+    await this.seleccionarTipoFondo(fundType);
+    await this.seleccionarFondo(fundName);
+    await this.seleccionarAccion(AccionFCI.SUSCRIBIR);
+    await this.ingresarMonto(amount);
+    await this.confirmarSuscripcion();
     await this.completeSuccessFlow();
   }
 
@@ -156,9 +156,9 @@ export class InvestFCIWizard extends BaseWizard {
    * Suscripción rápida a IAM Ahorro Pesos (fondo por defecto para tests)
    * @param amount - Monto a invertir
    */
-  async subscribeIAMAhorroPesos(amount: string = '25000000') {
-    await this.subscribeFund(
-      FundType.PESOS,
+  async suscribirIAMAhorroPesos(amount: string = '25000000') {
+    await this.suscribirFondo(
+      TipoFondo.PESOS,
       'IAM Ahorro Pesos - Clase BIAM 37 CI $',
       amount
     );
@@ -168,9 +168,9 @@ export class InvestFCIWizard extends BaseWizard {
    * Suscripción rápida a IAM Renta Dólares (fondo en dólares para tests)
    * @param amount - Monto a invertir
    */
-  async subscribeIAMRentaDolares(amount: string = '25000') {
-    await this.subscribeFund(
-      FundType.DOLARES,
+  async suscribirIAMRentaDolares(amount: string = '25000') {
+    await this.suscribirFondo(
+      TipoFondo.DOLARES,
       'IAM Renta Dolares - Clase B',
       amount
     );
@@ -179,7 +179,7 @@ export class InvestFCIWizard extends BaseWizard {
   /**
    * Click en "Realizar otra inversión"
    */
-  async makeAnotherInvestment() {
+  async realizarOtraInversion() {
     await this.page.getByRole('button', { name: BUTTONS.MAKE_ANOTHER_INVESTMENT }).click();
     await WaitHelper.shortWait(this.page, 1000);
     await this.verifyStep(1, this.TOTAL_STEPS);
@@ -192,16 +192,16 @@ export class InvestFCIWizard extends BaseWizard {
   /**
    * Verifica que ambos tipos de fondos estén disponibles
    */
-  async verifyFundTypeOptions() {
-    await this.verifyTextVisible(FundType.PESOS);
-    await this.verifyTextVisible(FundType.DOLARES);
+  async verificarOpcionesTipoFondo() {
+    await this.verifyTextVisible(TipoFondo.PESOS);
+    await this.verifyTextVisible(TipoFondo.DOLARES);
   }
 
   /**
    * Verifica que ambas acciones estén disponibles
    */
-  async verifyActionButtons() {
-    await this.verifyButtonEnabled(FCIAction.SUBSCRIBE);
-    await this.verifyButtonEnabled(FCIAction.WITHDRAW);
+  async verificarBotonesAccion() {
+    await this.verifyButtonEnabled(AccionFCI.SUSCRIBIR);
+    await this.verifyButtonEnabled(AccionFCI.RESCATAR);
   }
 }

@@ -1,5 +1,6 @@
 import { Page, expect } from '@playwright/test';
-import { BUTTONS, MESSAGES } from '../../utils/constants';
+import { BUTTONS } from '../../utils/constants/buttons';
+import { MESSAGES } from '../../utils/constants/messages';
 import { WaitHelper } from '../../utils/helpers/WaitHelper';
 
 /**

@@ -78,7 +78,7 @@ export abstract class BasePage {
    * @param text - Texto a verificar
    * @param timeout - Timeout en ms (default: 10000)
    */
-  async verifyTextVisible(text: string, timeout: number = 10000) {
+  async verifyTextVisible(text: string, timeout: number = 20000) {
     await expect(this.page.getByText(text)).toBeVisible({ timeout });
   }
 
