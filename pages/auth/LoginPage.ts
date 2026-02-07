@@ -1,6 +1,6 @@
 import { Page, Locator } from "@playwright/test";
-import { BasePage } from './base/BasePage';
-import { WaitHelper } from '../utils/helpers/WaitHelper';
+import { BasePage } from '../base/BasePage';
+import { WaitHelper } from '../../utils/helpers/WaitHelper';
 import * as env from 'dotenv';
 env.config();
 
@@ -47,4 +47,3 @@ export class LoginPage extends BasePage {
         await WaitHelper.waitForNavigation(this.page);
     }
 }
-
