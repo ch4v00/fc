@@ -62,14 +62,14 @@ export class DepositoWizard extends BaseWizard {
     amount?: number
   ) {
     await this.verifyStep(2, this.TOTAL_STEPS);
-
+    await WaitHelper.shortWait(this.page, 3000);
     // Seleccionar moneda si no es ARS
     if (currency !== Currency.ARS) {
       await this.currencySelector.selectCurrency(currency);
     }
 
     // Ingresar monto
-    await WaitHelper.shortWait(this.page, 4000);
+    await WaitHelper.shortWait(this.page, 5000);
     const depositAmount = amount || DataGenerator.randomAmount(1, 99999999);
     await this.fillInput('Ingresá el monto', depositAmount.toString());
 
@@ -77,9 +77,9 @@ export class DepositoWizard extends BaseWizard {
     await this.page.locator('input[placeholder="dd/mm/aaaa"]').first().fill(DateHelper.getCurrentDate());
 
     // Seleccionar cuenta origen
-    await WaitHelper.shortWait(this.page, 2000);
+    await WaitHelper.shortWait(this.page, 3000);
     await this.page.locator('.select-box').click();
-    await WaitHelper.shortWait(this.page, 2000);
+    await WaitHelper.shortWait(this.page, 1000);
     await this.page.getByText(bankName).click();
 
     // Seleccionar cuenta destino fyo

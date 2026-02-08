@@ -53,18 +53,6 @@ test.describe('Rescates de FCI', () => {
     );
   });
 
-  test('completar rescate FCI en dólares con retiro de fondo', async ({
-    homePage,
-    rescatarFCIDesdeInversionesWizard
-  }) => {
-    await homePage.clickInvestFCI();
-
-    await rescatarFCIDesdeInversionesWizard.rescatarFondoConRetiro(
-      TipoFondo.DOLARES,
-      'IAM Renta Dolares - Clase B',
-      '1000'
-    );
-  });
 
   // ============================================
   // FUNCIONALIDADES

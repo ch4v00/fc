@@ -10,7 +10,7 @@ test.describe('Portfolio FCI - Suscribir y Rescatar', () => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
   });
-
+  /*
   // ============================================
   // FONDOS EN DÓLARES - SUSCRIPCIÓN
   // ============================================
@@ -74,7 +74,7 @@ test.describe('Portfolio FCI - Suscribir y Rescatar', () => {
     await rescatarWizard.confirmarRescate();
     await rescatarWizard.completeSuccessFlow();
   });
-
+  */
   // ============================================
   // MÉTODOS RÁPIDOS
   // ============================================

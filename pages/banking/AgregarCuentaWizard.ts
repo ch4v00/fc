@@ -80,8 +80,9 @@ export class AgregarCuentaWizard extends BaseWizard {
    * @param bankName - Nombre del banco
    */
   private async seleccionarBanco(bankName: string) {
+    await WaitHelper.shortWait(this.page, 2000);
     await this.page.locator('.select-container.default > .select-box').first().click();
-    await WaitHelper.shortWait(this.page, 500);
+    await WaitHelper.shortWait(this.page, 2000);
     await this.page.getByText(bankName).click();
   }
 

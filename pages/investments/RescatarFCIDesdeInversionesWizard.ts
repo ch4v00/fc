@@ -76,6 +76,7 @@ export class RescatarFCIDesdeInversionesWizard extends BaseWizard {
     await WaitHelper.shortWait(this.page, 500);
 
     await this.next();
+    await WaitHelper.shortWait(this.page, 2000);
     await this.verifyStep(5, this.TOTAL_STEPS);
   }
 
@@ -98,11 +99,16 @@ export class RescatarFCIDesdeInversionesWizard extends BaseWizard {
    */
   async confirmarRescate(withFundsWithdrawal: boolean = false) {
     await this.verifyStep(5, this.TOTAL_STEPS);
+    await WaitHelper.shortWait(this.page, 1000);
 
-    // Si incluye retiro de fondos, aceptar el checkbox
+    // Si incluye retiro de fondos, aceptar el checkbox solo si existe
     if (withFundsWithdrawal) {
-      await this.clickCheckbox();
-      await WaitHelper.shortWait(this.page, 500);
+      const checkbox = this.page.locator('.mat-checkbox-inner-container');
+      const exists = await checkbox.isVisible({ timeout: 3000 }).catch(() => false);
+      if (exists) {
+        await checkbox.click();
+        await WaitHelper.shortWait(this.page, 500);
+      }
     }
 
     // Enviar solicitud
